@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model College {
+  id                             String   @id @default(cuid())
+  name                           String
+  slug                           String   @unique
+  location                       String
+  address                        String?
+  phone                          String?
+  website                        String?
+  setting                        String?
+  institutionalSector            String?
+  religiousAffiliation           String?
+  highestLevelOffering           String?
+  undergraduateEnrollment        Int?
+  graduateEnrollment             Int?
+  totalEnrollment                Int?
+  admissionsSelectivity          String?
+  outOfStateDifficulty           String?
+  studentFacultyRatio            String?
+  costOfAttendanceInState        Float?
+  costOfAttendanceOutOfState     Float?
+  studentsAdmittedPercent        Float?
+  description                    String?
+  // Branding
+  primaryColor                   String?
+  secondaryColor                 String?
+  heroImageUrl                   String?
+  logoUrl                        String?
+  // CDS Fields
+  applicationFee                 Int?
+  applicationDeadline            String?
+  rdDeadline                     String?
+  edDeadline                     String?
+  eaDeadline                     String?
+  totalApplicants                Int?
+  totalAdmitted                  Int?
+  totalEnrolled                  Int?
+  yieldRate                      Float?
+  classSize                      String?
+  retentionRate                  Float?
+  graduationRate4yr              Float?
+  graduationRate6yr              Float?
+  medianEarnings10yr             Float?
+  popularMajors                  String?
+  testPolicy                     String?
+  avgClassSize                   Int?
+  pctClassesUnder20              Float?
+  pctClassesOver50               Float?
+  earlyDecisionApplied           Int?
+  earlyDecisionAdmitted          Int?
+  earlyDecisionAdmitRate         Float?
+  earlyActionApplied             Int?
+  earlyActionAdmitted            Int?
+  earlyActionAdmitRate           Float?
+  regularDecisionApplied         Int?
+  regularDecisionAdmitted        Int?
+  regularDecisionAdmitRate       Float?
+  gpaDistribution                String?
+  satScores                      String?
+  actScores                      String?
+  admissionPolicies              String?
+  admissionConsiderations        String?
+  averageNetPrice                Float?
+  affordabilityPercent           Float?
+  financialAidDeadline           String?
+  financialAidNotificationPolicy String?
+  efcMethodology                 String?
+  fafsaRequired                  Boolean?
+  cssProfileRequired             Boolean?
+  scholarshipGrantAwards         Float?
+  financialAidPackages           String?
+  raceEthnicity                  String?
+  genderDistribution             String?
+  outOfStatePercent              Float?
+  housingInfo                    String?
+  securityInfo                   String?
+  services                       String?
+  programs                       String?
+  greekLife                      String?
+  athletics                      String?
+  dataSources                    String?
+  createdAt                      DateTime @default(now())
+  updatedAt                      DateTime @updatedAt
+
+  @@index([slug])
+  @@index([institutionalSector])
+  @@index([admissionsSelectivity])
+}
