@@ -1,7 +1,9 @@
 import { db } from "@/lib/db";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { unstable_cache } from "next/cache";
+
+// Force dynamic rendering to bypass cache during data updates
+export const dynamic = 'force-dynamic';
 import {
   ArrowLeft,
   MapPin,
@@ -26,15 +28,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 
-const getCachedCollege = unstable_cache(
-  async (slug: string) => {
-    return db.college.findUnique({
-      where: { slug },
-    });
-  },
-  ["college-detail-v2"], // Updated cache key to force refresh
-  { revalidate: 60, tags: ["colleges"] } // Reduced to 60s for faster updates
-);
+// Temporarily bypassing cache to force fresh data
+const getCachedCollege = async (slug: string) => {
+  return db.college.findUnique({
+    where: { slug },
+  });
+};
 
 const SCHOOL_COLORS: Record<string, { primary: string; secondary: string; heroImage: string }> = {
   "harvard-university": { primary: "#A51C30", secondary: "#1E1E1E", heroImage: "https://images.unsplash.com/photo-1562774053-701939374585?w=1920&q=80" },
