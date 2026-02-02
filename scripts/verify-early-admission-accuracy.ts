@@ -25,10 +25,12 @@ const VERIFIED_POLICIES: SchoolPolicy[] = [
   { slug: "yale-university", name: "Yale", expectedEAType: "SCEA", hasED: false, hasEA: true, source: "yale.edu" },
   { slug: "princeton-university", name: "Princeton", expectedEAType: "SCEA", hasED: false, hasEA: true, source: "princeton.edu" },
 
-  // REA schools - Restrictive Early Action (cannot apply ED elsewhere, some public EA allowed)
+  // REA schools - Restrictive Early Action (cannot apply EA/ED to other private schools)
   { slug: "stanford-university", name: "Stanford", expectedEAType: "REA", hasED: false, hasEA: true, source: "stanford.edu" },
-  { slug: "georgetown-university", name: "Georgetown", expectedEAType: "REA", hasED: false, hasEA: true, source: "georgetown.edu" },
   { slug: "university-of-notre-dame", name: "Notre Dame", expectedEAType: "REA", hasED: false, hasEA: true, source: "nd.edu" },
+
+  // Georgetown - Regular EA (can apply EA elsewhere, just not binding ED)
+  { slug: "georgetown-university", name: "Georgetown", expectedEAType: "EA", hasED: false, hasEA: true, source: "georgetown.edu" },
 
   // Regular EA schools - Non-restrictive EA (can apply anywhere else)
   { slug: "massachusetts-institute-of-technology", name: "MIT", expectedEAType: "EA", hasED: false, hasEA: true, source: "mit.edu" },

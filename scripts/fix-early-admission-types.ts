@@ -21,12 +21,12 @@ const SCEA_SCHOOLS = [
   "princeton-university",
 ];
 
-// Schools with REA (Restrictive Early Action) - some restrictions vary by school
-// Generally cannot apply ED elsewhere, may have exceptions for public universities
+// Schools with REA (Restrictive Early Action) - cannot apply EA/ED to other private schools
+// Generally can only apply EA to public universities
 const REA_SCHOOLS = [
   "stanford-university",       // Cannot apply ED/EA to other private schools
-  "university-of-notre-dame",  // Cannot apply ED to other schools, can apply EA to public schools
-  "georgetown-university",     // Cannot apply ED elsewhere, can apply EA/RD to other schools
+  "university-of-notre-dame",  // Cannot apply ED/EA to other private schools, can apply EA to public schools
+  // Note: Georgetown is NOT REA - they allow you to apply EA to other schools (just not binding ED)
 ];
 
 // Schools that do NOT have Early Decision (clear any incorrect ED data)
