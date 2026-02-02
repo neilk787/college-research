@@ -32,8 +32,8 @@ const getCachedCollege = unstable_cache(
       where: { slug },
     });
   },
-  ["college-detail"],
-  { revalidate: 3600, tags: ["colleges"] }
+  ["college-detail-v2"], // Updated cache key to force refresh
+  { revalidate: 60, tags: ["colleges"] } // Reduced to 60s for faster updates
 );
 
 const SCHOOL_COLORS: Record<string, { primary: string; secondary: string; heroImage: string }> = {
