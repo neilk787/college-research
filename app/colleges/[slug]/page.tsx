@@ -363,7 +363,11 @@ export default async function CollegeDetailPage({ params }: { params: { slug: st
                     {college.earlyActionApplied && (
                       <div className="border-l-2 border-slate-300 dark:border-slate-600 pl-4 py-2">
                         <div className="flex items-center justify-between mb-2">
-                          <h4 className="font-medium text-slate-800 dark:text-slate-200">Early Action</h4>
+                          <h4 className="font-medium text-slate-800 dark:text-slate-200">
+                            {college.earlyActionType === "SCEA" ? "Single-Choice Early Action" :
+                             college.earlyActionType === "REA" ? "Restrictive Early Action" :
+                             "Early Action"}
+                          </h4>
                           {college.eaDeadline && (
                             <span className="text-xs text-slate-500">{college.eaDeadline}</span>
                           )}
@@ -982,7 +986,11 @@ export default async function CollegeDetailPage({ params }: { params: { slug: st
                       )}
                       {college.eaDeadline && (
                         <div className="flex justify-between">
-                          <span className="text-gray-500">Early Action</span>
+                          <span className="text-gray-500">
+                            {college.earlyActionType === "SCEA" ? "SCEA" :
+                             college.earlyActionType === "REA" ? "REA" :
+                             "Early Action"}
+                          </span>
                           <span className="font-medium">{college.eaDeadline}</span>
                         </div>
                       )}

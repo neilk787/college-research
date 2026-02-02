@@ -40,6 +40,7 @@ model College {
   rdDeadline                     String?
   edDeadline                     String?
   eaDeadline                     String?
+  earlyActionType                String?  // "EA" = Regular EA, "REA" = Restrictive EA, "SCEA" = Single-Choice EA
   totalApplicants                Int?
   totalAdmitted                  Int?
   totalEnrolled                  Int?
